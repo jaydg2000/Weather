@@ -1,28 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     tools:context="com.gdc.weather.MasterActivity">
 
-    <FrameLayout
-        android:id="@+id/frameLayoutCurrentConditionsFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        >
-    </FrameLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_weight="20"
+        android:layout_height="0dp">
+    <fragment
+        android:id="@+id/fragmentCurrentDayConditions"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:name="com.gdc.weather.FragmentCurrentDayConditions"
+        android:layout_weight="1"
+        />
 
-    <FrameLayout
-        android:id="@+id/frameLayoutForecastFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/frameLayoutCurrentConditionsFragment"></FrameLayout>
+    <fragment
+        android:id="@+id/fragmentForecast"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:name="com.gdc.weather.FragmentForecast"
+        android:layout_weight="1"
+        />
+    </LinearLayout>
 
     <ImageView
         android:src="@drawable/yahoo_purple"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/frameLayoutForecastFragment"/>
+        android:layout_weight="1"/>
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

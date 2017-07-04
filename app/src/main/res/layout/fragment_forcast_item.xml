@@ -7,11 +7,11 @@
 
     <ImageView
         android:id="@+id/imageViewForecastIcon"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:src="@drawable/condition_clouds"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"/>
 
     <TextView
         android:id="@+id/textViewForecastCondition"
@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         app:layout_constraintLeft_toRightOf="@id/imageViewForecastIcon"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:text="Partly Cloudy"/>
 
     <TextView
@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="112"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintLeft_toRightOf="@+id/textViewLabelForecastHigh"
         app:layout_constraintTop_toBottomOf="@id/textViewForecastCondition"
          />
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Lo"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="20dp"
         app:layout_constraintLeft_toRightOf="@+id/textViewForecastHigh"
         app:layout_constraintTop_toBottomOf="@id/textViewForecastCondition"
         />
@@ -59,7 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="78"
-        android:textSize="30sp"
+        android:textSize="24sp"
         app:layout_constraintLeft_toRightOf="@+id/textViewLabelForecastLow"
         app:layout_constraintTop_toBottomOf="@id/textViewForecastCondition"
         />
