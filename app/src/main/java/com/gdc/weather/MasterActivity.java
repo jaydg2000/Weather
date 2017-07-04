@@ -5,6 +5,8 @@ import android.os.Bundle;
 
 public class MasterActivity extends AppCompatActivity {
 
+    private FragmentCurrentDayConditions fragmentCurrentDayConditions;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

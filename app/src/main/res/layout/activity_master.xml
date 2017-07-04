@@ -3,7 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.gdc.weather.MasterActivity">
+
+    <FrameLayout
+        android:id="@+id/frameLayoutCurrentConditionsFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frameLayoutForecastFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/frameLayoutCurrentConditionsFragment"></FrameLayout>
+
+    <ImageView
+        android:src="@drawable/yahoo_purple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/frameLayoutForecastFragment"/>
 
 </android.support.constraint.ConstraintLayout>
