@@ -37,9 +37,6 @@ public class FragmentForecast extends Fragment {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
 
         recyclerViewForecasts = (RecyclerView) view.findViewById(R.id.recyclerViewForecast);
-//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
-//        recyclerViewForecasts.setLayoutManager(layoutManager);
-//        recyclerViewForecasts.setAdapter(new ForecastAdapter(forecasts));
         return view;
     }
 

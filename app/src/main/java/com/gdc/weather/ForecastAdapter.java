@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.gdc.weather.model.WeatherData;
 import com.gdc.weather.service.proxy.model.Forecast;
+import com.gdc.weather.ui.UIFormatHelper;
 
 import java.util.List;
 
@@ -53,8 +54,8 @@ public class ForecastAdapter extends RecyclerView.Adapter {
 
         textViewForecastDay.setText(forecast.getDayOfWeek());
         textViewForecastCondition.setText(forecast.getConditionText());
-        textViewForecastLow.setText(formatTemperature(forecast.getLowTemperature()));
-        textViewForecastHigh.setText(formatTemperature(forecast.getHighTemperature()));
+        textViewForecastLow.setText(UIFormatHelper.formatTemperature(forecast.getLowTemperature()));
+        textViewForecastHigh.setText(UIFormatHelper.formatTemperature(forecast.getHighTemperature()));
     }
 
     @Override

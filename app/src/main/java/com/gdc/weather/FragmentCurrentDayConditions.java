@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gdc.weather.model.CurrentDayConditions;
+import com.gdc.weather.ui.UIFormatHelper;
 
 /**
  * Created by jaydg on 7/3/2017.
@@ -58,21 +59,17 @@ public class FragmentCurrentDayConditions extends Fragment {
 
         textViewLocation.setText(currentDayConditions.getLocationText());
         textViewConditions.setText(currentDayConditions.getConditionsText());
-        textViewTemperature.setText(formatTemperature(currentDayConditions.getTemperature()));
-        textViewLowTemperature.setText(formatTemperature(currentDayConditions.getLowTemperature()));
-        textViewHighTemperature.setText(formatTemperature(currentDayConditions.getHighTemperature()));
-        textViewHumidity.setText(formatPercentage(currentDayConditions.getHumidity()));
+        textViewTemperature.setText(UIFormatHelper.formatTemperature(
+                currentDayConditions.getTemperature()));
+        textViewLowTemperature.setText(UIFormatHelper.formatTemperature(
+                currentDayConditions.getLowTemperature()));
+        textViewHighTemperature.setText(UIFormatHelper.formatTemperature(
+                currentDayConditions.getHighTemperature()));
+        textViewHumidity.setText(UIFormatHelper.formatPercentage(
+                currentDayConditions.getHumidity()));
         imageViewConditionsIcon.setImageResource(
                 ConditionsIconResourceLocator.findResourceForConditionsCode(conditionCode));
         textViewConditions.setText(currentDayConditions.getConditionsText());
-    }
-
-    private String formatTemperature(float temperature) {
-        return Float.toString(temperature);
-    }
-
-    private String formatPercentage(float percentage) {
-        return Float.toString(percentage);
     }
 
     private boolean canBindData() {
