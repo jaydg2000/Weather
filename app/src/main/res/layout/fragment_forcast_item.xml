@@ -82,5 +82,25 @@
         android:layout_marginTop="0dp"
         app:layout_constraintTop_toBottomOf="@+id/imageViewForecastIcon" />
 
+    <TextView
+        android:id="@+id/textViewForecastHighDegreeSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:text="&#xb0;"
+        app:layout_constraintLeft_toRightOf="@+id/textViewForecastHigh"
+        app:layout_constraintTop_toTopOf="@+id/textViewForecastHigh" />
+
+    <TextView
+        android:id="@+id/textViewForecastLowDegreeSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="&#xb0;"
+        app:layout_constraintTop_toTopOf="@+id/textViewForecastLow"
+        app:layout_constraintLeft_toRightOf="@+id/textViewForecastLow"
+        android:layout_marginLeft="0dp" />
+
 
 </android.support.constraint.ConstraintLayout>

@@ -67,11 +67,6 @@ public class ForecastAdapter extends RecyclerView.Adapter {
         }
     }
 
-    // TODO: This is a duplicate. Move to a helper.
-    private String formatTemperature(float temperature) {
-        return Float.toString(temperature);
-    }
-
     public static class ForecastViewHolder extends RecyclerView.ViewHolder {
         public View view;
 
