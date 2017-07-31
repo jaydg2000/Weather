@@ -4,8 +4,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
-import com.gdc.weather.model.Forecast;
+import com.gdc.weather.model.WeatherData;
+import com.gdc.weather.service.proxy.model.Forecast;
 
 import java.util.List;
 
@@ -15,9 +18,9 @@ import java.util.List;
 
 public class ForecastAdapter extends RecyclerView.Adapter {
 
-    private List<Forecast> forecasts = null;
+    private List<WeatherData> forecasts = null;
 
-    public ForecastAdapter(List<Forecast> forecasts) {
+    public ForecastAdapter(List<WeatherData> forecasts) {
         this.forecasts = forecasts;
     }
 
@@ -31,7 +34,27 @@ public class ForecastAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        // bind data to layout
+        View view = holder.itemView;
+        WeatherData forecast = this.forecasts.get(position);
+        ImageView imageViewForecastIcon = (ImageView) view.findViewById(R.id.imageViewForecastIcon);
+        TextView textViewForecastDay = null;
+        TextView textViewForecastCondition;
+        TextView textViewForecastHigh;
+        TextView textViewForecastLow;
+
+        int conditionCode = forecast.getConditionCode();
+        imageViewForecastIcon.setImageResource(
+                ConditionsIconResourceLocator.findResourceForConditionsCode(conditionCode));
+
+        textViewForecastDay = (TextView) view.findViewById(R.id.textViewForecastDay);
+        textViewForecastCondition = (TextView) view.findViewById(R.id.textViewForecastCondition);
+        textViewForecastHigh = (TextView) view.findViewById(R.id.textViewForecastHigh);
+        textViewForecastLow = (TextView) view.findViewById(R.id.textViewForecastLow);
+
+        textViewForecastDay.setText(forecast.getDayOfWeek());
+        textViewForecastCondition.setText(forecast.getConditionText());
+        textViewForecastLow.setText(formatTemperature(forecast.getLowTemperature()));
+        textViewForecastHigh.setText(formatTemperature(forecast.getHighTemperature()));
     }
 
     @Override
@@ -41,6 +64,11 @@ public class ForecastAdapter extends RecyclerView.Adapter {
         } else {
             return forecasts.size();
         }
+    }
+
+    // TODO: This is a duplicate. Move to a helper.
+    private String formatTemperature(float temperature) {
+        return Float.toString(temperature);
     }
 
     public static class ForecastViewHolder extends RecyclerView.ViewHolder {

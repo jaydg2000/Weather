@@ -1,16 +1,17 @@
 package com.gdc.weather;
 
+import android.app.Fragment;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gdc.weather.model.Forecast;
+import com.gdc.weather.model.WeatherData;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -18,26 +19,40 @@ import java.util.List;
  */
 public class FragmentForecast extends Fragment {
 
+    private List<WeatherData> forecasts;
+    private RecyclerView recyclerViewForecasts;
+
     public FragmentForecast() {
+        forecasts = new ArrayList<>();
+    }
+
+    public void setForecasts(List<WeatherData> forecasts) {
+        this.forecasts = forecasts;
+        bindData();
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = null;
-        view = inflater.inflate(R.layout.fragment_forecast, container, false);
+        View view = inflater.inflate(R.layout.fragment_forecast, container, false);
 
-        RecyclerView recyclerViewForecasts =
-                (RecyclerView) view.findViewById(R.id.recyclerViewForecast);
+        recyclerViewForecasts = (RecyclerView) view.findViewById(R.id.recyclerViewForecast);
+//        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getActivity());
+//        recyclerViewForecasts.setLayoutManager(layoutManager);
+//        recyclerViewForecasts.setAdapter(new ForecastAdapter(forecasts));
+        return view;
+    }
 
-        List<Forecast> forecasts = new ArrayList<>();
-        for( int c=0; c<7; c++) {
-            forecasts.add(new Forecast());
+    private void bindData() {
+        if (!canBindData()) {
+            return;
         }
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        recyclerViewForecasts.setLayoutManager(layoutManager);
-        recyclerViewForecasts.setAdapter(new ForecastAdapter(forecasts));
-        return view;
+        recyclerViewForecasts.setAdapter(new ForecastAdapter(this.forecasts));
+        recyclerViewForecasts.setLayoutManager(new LinearLayoutManager(getActivity()));
+    }
+
+    private boolean canBindData() {
+        return (this.forecasts != null && this.isResumed());
     }
 }

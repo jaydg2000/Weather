@@ -17,7 +17,7 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:name="com.gdc.weather.FragmentCurrentDayConditions"
-        android:layout_weight="1"
+        android:layout_weight="2"
         />
 
     <fragment
@@ -25,7 +25,7 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:name="com.gdc.weather.FragmentForecast"
-        android:layout_weight="1"
+        android:layout_weight="3"
         />
     </LinearLayout>
 

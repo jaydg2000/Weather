@@ -8,22 +8,21 @@
 
     <TextView
         android:id="@+id/textViewLocation"
-        android:layout_width="228dp"
+        android:layout_width="356dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toRightOf="parent"
-        android:layout_marginTop="16dp"
-        android:text="Phoenix, AZ"
+        android:paddingBottom="16dp"
         android:ellipsize="end"
+        android:text="Phoenix, AZ"
         android:textSize="22sp"
-        />
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="6dp" />
 
     <ImageView
         android:id="@+id/imageViewCurrentDayConditionIcon"
-        android:layout_width="154dp"
-        android:layout_height="154dp"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:src="@drawable/condition_clear"
-        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewLocation"/>
 
@@ -31,104 +30,93 @@
         android:id="@+id/textViewCurrentDayTemp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="32dp"
-        android:textSize="52sp"
+        android:paddingTop="0dp"
+        android:textSize="44sp"
         android:text="108"
         app:layout_constraintLeft_toRightOf="@+id/imageViewCurrentDayConditionIcon"
-        app:layout_constraintTop_toBottomOf="@id/textViewLocation"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocation"
         android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"
-        />
+        android:layout_marginTop="18dp" />
 
     <TextView
         android:id="@+id/textViewLabelCurrentDayLow"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
         android:textSize="14sp"
         android:text="Lo"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayTemp"
-        app:layout_constraintLeft_toRightOf="@+id/imageViewCurrentDayConditionIcon"
+        app:layout_constraintLeft_toRightOf="@+id/textViewCurrentDayTempDegreeSymbol"
         android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"/>
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayHigh" />
 
     <TextView
         android:id="@+id/textViewCurrentDayLow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:text="84"
+        app:layout_constraintLeft_toRightOf="@+id/textViewLabelCurrentDayHumidity"
+        android:layout_marginLeft="0dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayTemp"
-        app:layout_constraintLeft_toRightOf="@+id/textViewLabelCurrentDayLow"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayHigh" />
 
     <TextView
         android:id="@+id/textViewLabelCurrentDayHigh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
         android:textSize="14sp"
         android:text="Hi"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/imageViewCurrentDayConditionIcon"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayLow"/>
+        app:layout_constraintLeft_toLeftOf="@+id/textViewLabelCurrentDayLow"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLocation" />
 
     <TextView
         android:id="@+id/textViewCurrentDayHigh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:textSize="22sp"
+        android:textSize="18sp"
         android:text="112"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayLow"
-        app:layout_constraintLeft_toRightOf="@+id/textViewLabelCurrentDayHigh"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintRight_toRightOf="@+id/textViewCurrentDayLow"
+        android:layout_marginRight="0dp"
+        app:layout_constraintTop_toTopOf="@+id/textViewLabelCurrentDayHigh"
+        android:layout_marginTop="0dp" />
 
     <TextView
         android:id="@+id/textViewLabelCurrentDayHumidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
         android:textSize="14sp"
+        android:paddingRight="20dp"
         android:text="Humidity"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayHigh"
-        app:layout_constraintLeft_toRightOf="@+id/imageViewCurrentDayConditionIcon"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"/>
+        app:layout_constraintLeft_toLeftOf="@+id/textViewLabelCurrentDayHigh"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewLabelCurrentDayLow" />
 
     <TextView
         android:id="@+id/textViewCurrentDayHumidity"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingTop="6dp"
-        android:textSize="22sp"
-        android:text="6%"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayHigh"
-        app:layout_constraintLeft_toRightOf="@+id/textViewLabelCurrentDayHumidity"
-        android:layout_marginLeft="8dp"
-        android:layout_marginStart="8dp"/>
+        android:text="49"
+        android:textSize="18sp"
+        app:layout_constraintRight_toLeftOf="@+id/textViewHumidityPercentSymbol"
+        app:layout_constraintTop_toTopOf="@+id/textViewLabelCurrentDayHumidity"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp" />
 
     <TextView
         android:id="@+id/textViewCurrentDayShortConditionText"
         android:paddingTop="20dp"
         android:textSize="14sp"
-        android:layout_width="wrap_content"
+        android:gravity="start"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:maxLines="2"
         app:layout_constraintTop_toBottomOf="@+id/textViewCurrentDayHumidity"
+        android:ellipsize="end"
         android:text="Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
@@ -137,5 +125,41 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"/>
+
+    <TextView
+        android:id="@+id/textViewCurrentDayTempDegreeSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&#xb0;"
+        android:textSize="22sp"
+        app:layout_constraintLeft_toRightOf="@+id/textViewCurrentDayTemp"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrentDayTemp" />
+
+    <TextView
+        android:id="@+id/textViewLowTempDegreeSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&#xb0;"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/textViewCurrentDayLow"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrentDayLow" />
+
+    <TextView
+        android:id="@+id/textViewHighDegreeSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="&#xb0;"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toRightOf="@+id/textViewCurrentDayHigh"
+        app:layout_constraintTop_toTopOf="@+id/textViewCurrentDayHigh" />
+
+    <TextView
+        android:id="@+id/textViewHumidityPercentSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="%"
+        android:textSize="10sp"
+        app:layout_constraintTop_toTopOf="@+id/textViewLabelCurrentDayHumidity"
+        app:layout_constraintRight_toRightOf="@+id/textViewHighDegreeSymbol" />
 
 </android.support.constraint.ConstraintLayout>
