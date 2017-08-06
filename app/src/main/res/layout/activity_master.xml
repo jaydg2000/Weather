@@ -1,38 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawerLayoutMaster"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.gdc.weather.MasterActivity">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_weight="20"
-        android:layout_height="0dp">
-    <fragment
-        android:id="@+id/fragmentCurrentDayConditions"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:name="com.gdc.weather.FragmentCurrentDayConditions"
-        android:layout_weight="2"
-        />
+        android:layout_height="match_parent">
 
-    <fragment
-        android:id="@+id/fragmentForecast"
-        android:layout_height="0dp"
-        android:layout_width="match_parent"
-        android:name="com.gdc.weather.FragmentForecast"
-        android:layout_weight="3"
-        />
-    </LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.gdc.weather.MasterActivity">
 
-    <ImageView
-        android:src="@drawable/yahoo_purple"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:orientation="vertical">
 
-</LinearLayout>
+                <fragment
+                    android:id="@+id/fragmentCurrentDayConditions"
+                    android:name="com.gdc.weather.FragmentCurrentDayConditions"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="2" />
+
+                <fragment
+                    android:id="@+id/fragmentForecast"
+                    android:name="com.gdc.weather.FragmentForecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="3" />
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:src="@drawable/yahoo_purple" />
+
+        </LinearLayout>
+    </FrameLayout>
+    <!-- The navigation drawer -->
+    <ListView android:id="@+id/listViewLeftDrawer"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:choiceMode="singleChoice"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0dp"
+        android:background="#FFFFFF"/>
+</android.support.v4.widget.DrawerLayout>

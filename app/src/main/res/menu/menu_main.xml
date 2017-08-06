@@ -4,4 +4,12 @@
     <item android:id="@+id/menuItemSettings"
         android:icon="@android:drawable/ic_menu_preferences"
         android:title="Preferences..." app:showAsAction="always"/>
+    <item android:id="@+id/menuItemAddFavorite"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Add to Favorites"
+        app:showAsAction="never"/>
+    <item android:id="@+id/menuItemClearFavorites"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="Clear Favorites"
+        app:showAsAction="never"/>
 </menu>
