@@ -12,35 +12,30 @@ import android.widget.TextView;
 import com.gdc.weather.model.CurrentDayConditions;
 import com.gdc.weather.ui.UIFormatHelper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * Created by jaydg on 7/3/2017.
  */
 
 public class FragmentCurrentDayConditions extends Fragment {
     private CurrentDayConditions currentDayConditions;
-    private ImageView imageViewConditionsIcon;
-    private TextView textViewLocation;
-    private TextView textViewConditions;
-    private TextView textViewTemperature;
-    private TextView textViewLowTemperature;
-    private TextView textViewHighTemperature;
-    private TextView textViewHumidity;
-    private TextView textViewConditionsText;
+
+    @BindView(R.id.imageViewCurrentDayConditionIcon) ImageView imageViewConditionsIcon;
+    @BindView(R.id.textViewLocation) TextView textViewLocation;
+    @BindView(R.id.textViewCurrentDayShortConditionText) TextView textViewConditions;
+    @BindView(R.id.textViewCurrentDayTemp) TextView textViewTemperature;
+    @BindView(R.id.textViewCurrentDayLow) TextView textViewLowTemperature;
+    @BindView(R.id.textViewCurrentDayHigh) TextView textViewHighTemperature;
+    @BindView(R.id.textViewCurrentDayHumidity) TextView textViewHumidity;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = null;
         view = inflater.inflate(R.layout.fragment_current_day_conditions, container, false);
-
-        imageViewConditionsIcon = (ImageView) view.findViewById(R.id.imageViewCurrentDayConditionIcon);
-        textViewLocation = (TextView) view.findViewById(R.id.textViewLocation);
-        textViewConditions = (TextView) view.findViewById(R.id.textViewCurrentDayShortConditionText);
-        textViewTemperature = (TextView) view.findViewById(R.id.textViewCurrentDayTemp);
-        textViewLowTemperature = (TextView) view.findViewById(R.id.textViewCurrentDayLow);
-        textViewHighTemperature = (TextView) view.findViewById(R.id.textViewCurrentDayHigh);
-        textViewHumidity = (TextView) view.findViewById(R.id.textViewCurrentDayHumidity);
-        textViewConditionsText = (TextView) view.findViewById(R.id.textViewLocation);
+        ButterKnife.bind(this, view);
 
         return view;
     }

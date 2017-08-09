@@ -35,6 +35,7 @@ public class ForecastAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+
         View view = holder.itemView;
         WeatherData forecast = this.forecasts.get(position);
         ImageView imageViewForecastIcon = (ImageView) view.findViewById(R.id.imageViewForecastIcon);

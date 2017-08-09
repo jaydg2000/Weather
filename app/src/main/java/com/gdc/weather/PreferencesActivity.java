@@ -9,18 +9,22 @@ import android.widget.EditText;
 
 import com.gdc.weather.ui.PreferenceHelper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class PreferencesActivity extends AppCompatActivity {
 
-    private EditText editTextSettingsState;
-    private EditText editTextSettingsCity;
+    @BindView(R.id.editTextSettingsState)
+    EditText editTextSettingsState;
+    @BindView(R.id.editTextSettingsCity)
+    EditText editTextSettingsCity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preferences);
 
-        editTextSettingsState = (EditText) findViewById(R.id.editTextSettingsState);
-        editTextSettingsCity = (EditText) findViewById(R.id.editTextSettingsCity);
+        ButterKnife.bind(this);
 
         loadSettings();
         setupSaveButtonClick();
