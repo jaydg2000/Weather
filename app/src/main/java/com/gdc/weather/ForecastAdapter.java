@@ -13,9 +13,8 @@ import com.gdc.weather.ui.UIFormatHelper;
 
 import java.util.List;
 
-/**
- * Created by jaydg on 7/4/2017.
- */
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class ForecastAdapter extends RecyclerView.Adapter {
 
@@ -35,28 +34,17 @@ public class ForecastAdapter extends RecyclerView.Adapter {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-
-        View view = holder.itemView;
+        ForecastViewHolder viewHolder = (ForecastViewHolder) holder;
         WeatherData forecast = this.forecasts.get(position);
-        ImageView imageViewForecastIcon = (ImageView) view.findViewById(R.id.imageViewForecastIcon);
-        TextView textViewForecastDay = null;
-        TextView textViewForecastCondition;
-        TextView textViewForecastHigh;
-        TextView textViewForecastLow;
 
         int conditionCode = forecast.getConditionCode();
-        imageViewForecastIcon.setImageResource(
+        viewHolder.imageViewForecastIcon.setImageResource(
                 ConditionsIconResourceLocator.findResourceForConditionsCode(conditionCode));
 
-        textViewForecastDay = (TextView) view.findViewById(R.id.textViewForecastDay);
-        textViewForecastCondition = (TextView) view.findViewById(R.id.textViewForecastCondition);
-        textViewForecastHigh = (TextView) view.findViewById(R.id.textViewForecastHigh);
-        textViewForecastLow = (TextView) view.findViewById(R.id.textViewForecastLow);
-
-        textViewForecastDay.setText(forecast.getDayOfWeek());
-        textViewForecastCondition.setText(forecast.getConditionText());
-        textViewForecastLow.setText(UIFormatHelper.formatTemperature(forecast.getLowTemperature()));
-        textViewForecastHigh.setText(UIFormatHelper.formatTemperature(forecast.getHighTemperature()));
+        viewHolder.textViewForecastDay.setText(forecast.getDayOfWeek());
+        viewHolder.textViewForecastCondition.setText(forecast.getConditionText());
+        viewHolder.textViewForecastLow.setText(UIFormatHelper.formatTemperature(forecast.getLowTemperature()));
+        viewHolder.textViewForecastHigh.setText(UIFormatHelper.formatTemperature(forecast.getHighTemperature()));
     }
 
     @Override
@@ -69,11 +57,20 @@ public class ForecastAdapter extends RecyclerView.Adapter {
     }
 
     public static class ForecastViewHolder extends RecyclerView.ViewHolder {
-        public View view;
+        @BindView(R.id.imageViewForecastIcon)
+        ImageView imageViewForecastIcon;
+        @BindView(R.id.textViewForecastDay)
+        TextView textViewForecastDay;
+        @BindView(R.id.textViewForecastCondition)
+        TextView textViewForecastCondition;
+        @BindView(R.id.textViewForecastHigh)
+        TextView textViewForecastHigh;
+        @BindView(R.id.textViewForecastLow)
+        TextView textViewForecastLow;
 
         public ForecastViewHolder(View itemView) {
             super(itemView);
-            view = itemView;
+            ButterKnife.bind(this, itemView);
         }
     }
 }

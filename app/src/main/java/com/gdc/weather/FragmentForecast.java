@@ -14,13 +14,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FragmentForecast extends Fragment {
 
+    private Unbinder unbinder;
     private List<WeatherData> forecasts;
-    private RecyclerView recyclerViewForecasts;
+    @BindView(R.id.recyclerViewForecast) RecyclerView recyclerViewForecasts;
 
     public FragmentForecast() {
         forecasts = new ArrayList<>();
@@ -35,9 +40,14 @@ public class FragmentForecast extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
-
-        recyclerViewForecasts = (RecyclerView) view.findViewById(R.id.recyclerViewForecast);
+        unbinder = ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     private void bindData() {

@@ -14,6 +14,7 @@ import com.gdc.weather.ui.UIFormatHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 /**
  * Created by jaydg on 7/3/2017.
@@ -21,6 +22,7 @@ import butterknife.ButterKnife;
 
 public class FragmentCurrentDayConditions extends Fragment {
     private CurrentDayConditions currentDayConditions;
+    private Unbinder unbinder;
 
     @BindView(R.id.imageViewCurrentDayConditionIcon) ImageView imageViewConditionsIcon;
     @BindView(R.id.textViewLocation) TextView textViewLocation;
@@ -35,9 +37,15 @@ public class FragmentCurrentDayConditions extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = null;
         view = inflater.inflate(R.layout.fragment_current_day_conditions, container, false);
-        ButterKnife.bind(this, view);
+        unbinder = ButterKnife.bind(this, view);
 
         return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 
     public void setCurrentDayConditions(CurrentDayConditions currentDayConditions) {

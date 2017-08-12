@@ -11,6 +11,7 @@ import com.gdc.weather.ui.PreferenceHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class PreferencesActivity extends AppCompatActivity {
 
@@ -27,7 +28,6 @@ public class PreferencesActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         loadSettings();
-        setupSaveButtonClick();
     }
 
     private void loadSettings() {
@@ -38,22 +38,17 @@ public class PreferencesActivity extends AppCompatActivity {
         editTextSettingsCity.setText(PreferenceHelper.parseCityFromPreference(preference));
     }
 
-    private void setupSaveButtonClick() {
-        findViewById(R.id.buttonSaveSettings)
-                .setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String state = editTextSettingsState.getText().toString();
-                        String city = editTextSettingsCity.getText().toString();
+    @OnClick(R.id.buttonSaveSettings)
+    void onSaveButtonClick() {
+        String state = editTextSettingsState.getText().toString();
+        String city = editTextSettingsCity.getText().toString();
 
-                        getSharedPreferences(WeatherApp.SHARED_PREF_FILENAME, MODE_PRIVATE)
-                                .edit()
-                                .putString(
-                                        WeatherApp.SHARED_PREF_CITY_STATE,
-                                        PreferenceHelper.formatCityStatePreference(city, state))
-                                .commit();
-                        finish();
-                    }
-                });
+        getSharedPreferences(WeatherApp.SHARED_PREF_FILENAME, MODE_PRIVATE)
+                .edit()
+                .putString(
+                        WeatherApp.SHARED_PREF_CITY_STATE,
+                        PreferenceHelper.formatCityStatePreference(city, state))
+                .apply();
+        finish();
     }
 }
